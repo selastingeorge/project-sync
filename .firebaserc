@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "project-sync-22445": {
+      "hosting": {
+        "project-sync": [
+          "projectsync"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "project-sync-22445"
+  }
+}

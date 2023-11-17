@@ -1,0 +1,17 @@
+<nav class="navbar flex flex-col" [ngClass]="{'drawer-open':navigationService.isDrawerOpen(),'drawer-closed':!navigationService.isDrawerOpen()}">
+    <div class="user-wrap p-3">
+        <div class="flex items-center gap-4 w-full">
+            <div class="relative w-10 h-10 overflow-hidden bg-indigo-500 rounded-full flex items-center justify-center">
+                <span class="capitalize text-white font-medium">{{user?.email.split('@')[0][0]}}</span>
+            </div>
+            <div class="font-medium dark:text-black text-sm">
+                <div class="capitalize">{{user?.email.split('@')[0]}}</div>
+                <div class="text-xs text-gray-500 dark:text-gray-400">{{user?.email}}</div>
+            </div>
+            <button class="ms-auto" (click)="logout()">
+                <span class="mi text-[#415570]">logout</span>
+            </button>
+        </div>
+    </div>
+    <ng-content></ng-content>
+</nav>

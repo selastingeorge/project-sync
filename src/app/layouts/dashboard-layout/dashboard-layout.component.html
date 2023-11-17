@@ -1,0 +1,13 @@
+<section class="dashboard-layout flex flex-col">
+    <div class="toolbar px-5">
+        <ng-content select="[toolbar]"></ng-content>
+    </div>
+    <div class="content-area flex">
+        <ng-container class="navigation py-3">
+            <ng-content select="[navigation]"></ng-content>
+        </ng-container>
+        <div class="content">
+            <ng-content select="[content]"></ng-content>
+        </div>
+    </div>
+</section>

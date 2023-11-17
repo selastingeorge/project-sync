@@ -1,0 +1,33 @@
+<app-dashboard-layout>
+    <div toolbar class="h-full">
+        <app-toolbar [isDrawerOpen]="navigationService.isDrawerOpen()" (drawerExpansionRequested)="onDrawerOpen($event)"></app-toolbar>
+    </div>
+
+    <div navigation class="nav-wrap overflow-hidden" [ngClass]="{'nav-opened': navigationService.isDrawerOpen(),'nav-closed':!navigationService.isDrawerOpen()}">
+        <app-navigation-bar>
+            <app-navigation-link path="/dashboard/home" icon="grid_view">Dashboard</app-navigation-link>
+            <app-navigation-link path="/dashboard/project-management" icon="folder_open">Project Management</app-navigation-link>
+            <app-navigation-link path="/dashboard/risk-management" icon="insert_chart">Risk Management</app-navigation-link>
+            <app-navigation-link path="/dashboard/test-case-management" icon="insert_chart">Test Case Management</app-navigation-link>
+            <app-navigation-link path="/dashboard/resource-management" icon="group">Resource Management</app-navigation-link>
+            <app-navigation-link path="/dashboard/audit-management" icon="insert_chart">Audit Management</app-navigation-link>
+            <app-navigation-link path="/dashboard/csat-management" icon="instant_mix">CSAT Management</app-navigation-link>
+            <app-navigation-link path="/dashboard/reports" icon="insert_chart">Reports</app-navigation-link>
+            <app-navigation-link path="/dashboard/settings" icon="settings">Settings</app-navigation-link>
+        </app-navigation-bar>
+    </div>
+
+    <div content class="content-wrap h-full relative bg-[#f4f7fe]">
+        @if(loading)
+        {
+            <div class='w-full absolute'>
+                <div class='h-1 w-full bg-indigo-100 overflow-hidden'>
+                <div class='progress w-full h-full bg-[#575fdc] left-right'></div>
+                </div>
+            </div>
+        }
+        <div class="h-full">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</app-dashboard-layout>

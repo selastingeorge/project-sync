@@ -1,0 +1,14 @@
+.title 
+{
+    font-size: 1.75rem;
+
+    @media screen and (max-width:375px) 
+    {
+        font-size: 1.5rem
+    }
+}
+
+.error-wrap
+{
+    font-size:13px !important;
+}

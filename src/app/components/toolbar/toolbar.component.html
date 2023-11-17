@@ -1,0 +1,54 @@
+<section class="toolbar flex align-centert h-full items-center">
+    <div class="logo-wrap flex items-center">
+        <button class="flex items-center me-5 open-nav-mobile" (click)="toggleDrawer()">
+            <span class="mi">
+                menu
+            </span>
+        </button>
+        <img src="assets/images/logo.svg" width="140" height="50" alt="Logo" />
+        <button class="open-nav-btn ms-auto me-5 md:d-none" (click)="toggleDrawer()">
+            <span class="mi">
+                format_indent_decrease
+            </span>
+        </button>
+    </div>
+    <div class="controls flex items-center ms-auto">
+        <div class="search bg-[#f2f3f8] px-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#415570" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" class="border-0" placeholder="Search.."/>
+        </div>
+        <button class="relative inline-flex ms-5 items-center text-sm font-medium text-center text-[#415570] hover:text-[#402AA9] focus:outline-none" type="button">
+            <span class="mi">notifications</span>
+            <div class="absolute block w-3 h-3 bg-red-500 border-2 border-white rounded-full -top-0.5 start-2.5"></div>
+        </button>
+        <a routerLink="/dashboard/settings" class="flex ms-5 items-center justify-center text-[#415570] hover:text-[#402AA9]">
+            <span class="mi">settings</span>
+        </a>
+        
+        <div class="flex justify-center">
+            <div class="relative dropdown-menu-wrap">
+              <button class="flex focus:outline-none dropdown-toggle" (click)="toggleMenu()" >
+                <div class="flex account items-center justify-start gap-2 ms-8 p-2 rounded-md hover:bg-slate-100 cursor-pointer">
+                    <div class="relative w-8 h-8 overflow-hidden bg-indigo-500 rounded-full flex items-center justify-center">
+                        <span class="capitalize text-white font-medium">{{user?.email.split('@')[0][0]}}</span>
+                    </div>
+                    <div class="font-medium dark:text-[#415570] text-sm">
+                        <div class="capitalize username text-start">{{user?.email.split('@')[0]}}</div>
+                        <div class="text-xs text-gray-500 dark:text-gray-400 email">{{user?.email}}</div>
+                    </div>
+                </div>
+              </button>
+              <div class="absolute dropdown-menu right-0 w-full flex-col gap-4 mt-2 bg-white border rounded shadow-xl" [ngClass]="{'menu-open':menuOpen}">   
+                    <button (click)="logout()" class="text-xs text-[#415570] font-medium flex items-center gap-3 p-3 cursor-pointer signout-btn">    
+                        <span class="mi">logout</span>
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

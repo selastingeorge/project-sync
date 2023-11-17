@@ -1,0 +1,33 @@
+.page-header
+{
+    width:100%;
+    background:#fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap:15px;
+
+    @media screen and (max-width:992px)
+    {
+        flex-wrap: wrap;
+
+        .filters
+        {
+            width: 100%;
+            padding-top: 10px;
+            border-top: 1px solid #f8f8f8;
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+
+    .titlebar
+    {
+        margin-left: auto;
+    }
+}
+
+.text-tiny
+{
+    font-size:12px;
+}

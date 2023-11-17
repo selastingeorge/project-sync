@@ -1,0 +1,57 @@
+<section class="project-management ms-auto">
+    <app-page-header title="Projects" path="Project Management/Projects">
+        <div titlebar class="flex items-center md:flex-col">
+            <div class="controls-wrap flex gap-4">
+                <button class="btn flex items-center bg-[#5160f6] p-2 px-3 rounded-md btn-new-project" (click)="toggleProjectWindow()">
+                    <span class="mi">add</span>
+                    <span class="font-medium text-white">New Project</span>
+                </button>
+            </div>
+        </div>
+        <div filters class="h-full flex items-center gap-4">
+            <select class="combobox">
+                <option selected disabled>Sort By</option>
+                <option>Name</option>
+                <option>Date</option>
+                <option>Type</option>
+            </select>
+
+            <select class="combobox">
+                <option selected>My Projects</option>
+                <option>My Teams</option>
+            </select>
+
+            <div class="inline-flex rounded-md toggler">
+                <button class="p-2 flex items-center text-sm font-medium text-blue-700 bg-[#eef1ff] border border-gray-200 rounded-s-lg hover:bg-gray-100 ">
+                  <span class="mi text-sm">view_list</span>
+                </button>
+                <button class="p-2 flex items-center text-sm font-medium text-white bg-[#5262ee] border border-gray-200 rounded-e-lg">
+                    <span class="mi text-sm">apps</span>
+                </button>
+            </div>
+        </div>
+    </app-page-header>
+
+    <section class="projects-wrapper px-5 py-3">
+        <span class="sort-label text-xs font-medium text-gray-500">From Last 7 days</span>
+        <div class="project-card-wrapper py-3 gap-5 flex-wrap">
+            @for(project of projects.slice(0, 4);track project.title)
+            {
+                <app-project-card title="{{project.title}}" [members]="project.members" status="{{project.status}}" [progress]="project.progress" tasks="{{project.tasks}}" users="{{project.users}}"></app-project-card>
+            }
+        </div>
+
+        <span class="sort-label text-xs font-medium text-gray-500">From Last One month</span>
+        <div class="project-card-wrapper py-3 gap-5 flex-wrap">
+            @for(project of projects.slice(4);track project.title)
+            {
+                <app-project-card [members]="project.members" title="{{project.title}}" status="{{project.status}}" [progress]="project.progress" tasks="{{project.tasks}}" users="{{project.users}}"></app-project-card>
+            }
+        </div>
+    </section>
+    
+    @if(openNewProjectWindow)
+    {
+        <app-new-project-dialog (onDialogCloseRequested)="closeRequested($event)"></app-new-project-dialog>
+    }
+</section>

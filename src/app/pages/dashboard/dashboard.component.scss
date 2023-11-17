@@ -1,0 +1,49 @@
+.nav-wrap
+{
+    width: 100%;
+    height: 100%;
+    max-width:280px;
+    transition-duration: 300ms;
+    background:#fff;
+    z-index:999;
+    position:relative;
+
+    &.nav-opened
+    {
+        width:100%;
+
+        @media screen and (max-width:992px)
+        {
+            width:100%;
+            position:relative;
+        }
+
+        @media screen and (max-width:567px)
+        {
+            width:100%;
+            transform:translateX(0px);
+            position:fixed;
+            max-width:unset;
+            overflow:auto;
+        }
+    }
+
+    &.nav-closed
+    {
+       width:60px;
+
+        @media screen and (max-width:992px)
+        {
+            width:60px;
+            position:relative;
+        }
+
+         @media screen and (max-width:567px)
+        {
+            width:100%;
+            transform:translateX(-100%);
+            position:absolute;
+            max-width:unset;
+        }
+    }
+}

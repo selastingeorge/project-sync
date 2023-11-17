@@ -1,0 +1,530 @@
+<div class="fixed dialog top-0 left-0 w-full h-full">
+    <div class="bg-black w-full h-full opacity-40 absolute z-10"></div>
+    <div class="w-full h-full flex items-center justify-center">
+        <div class="w-full h-full flex flex-col bg-white z-20 relative lg:w-4/6 lg:h-5/6 lg:rounded-xl shadow-lg overflow-hidden">
+            <div class="flex justify-between border-b border-gray-200 py-4 px-5 w-full">
+                <span class="font-semibold text-md text-slate-700">Add new project</span>
+                <button class="flex items-center justify-center" (click)="closeDialog()">
+                    <span class="mi text-slate-700">close</span>
+                </button>
+            </div>
+
+            <div class="flex h-full overflow-auto flex-col lg:flex-row">
+                <div class="w-auto steps">
+                    <div class="flex steps-row flex-row lg:flex-col p-8">
+                        <div class="flex gap-5 step-details items-center">
+                            <div class="flex icon-wrap w-10 h-10 rounded-lg items-center justify-center" [ngClass]="{'bg-[#e5e9fb]':steps.active!=1,'bg-[#faecea]':steps.data[0].skipped,'bg-[#5062f0]':steps.active==1}">
+                                @if(steps.data[0].completed)
+                                {
+                                    <span class="text-lg font-medium mi" [ngClass]="(steps.active==1)?'text-white':'text-[#5062f0]'">check</span>
+                                }
+                                @else if (steps.data[0].skipped) {
+                                    <span class="text-lg font-medium text-red-600 mi">exclamation</span>
+                                } 
+                                @else
+                                {
+                                    <span class="text-lg font-medium" [ngClass]="(steps.active==1)?'text-white':'text-[#334155]'">1</span>
+                                }
+                                
+                            </div>
+                            <div class="flex flex-col detail-wrap">
+                                <span class="text-title font-medium inter" [ngClass]="(steps.active==1)?'text-[#5062f0]':'text-[#334155]'">Details</span>
+                                <span class="text-tiny text-gray-700 inter description">Basic Details</span>
+                            </div>
+                        </div>
+                        <div class="seperator lg:mx-5"></div>
+                        <div class="flex gap-5 step-details items-center">
+                            <div class="flex icon-wrap w-10 h-10  rounded-lg items-center justify-center" [ngClass]="{'bg-[#e5e9fb]':steps.active!=2,'bg-[#faecea]':steps.data[1].skipped,'bg-[#5062f0]':steps.active==2}">
+                                @if(steps.data[1].completed)
+                                {
+                                    <span class="text-lg font-medium mi" [ngClass]="(steps.active==2)?'text-white':'text-[#5062f0]'">check</span>
+                                }
+                                @else if (steps.data[1].skipped) {
+                                    <span class="text-lg font-medium text-red-600 mi">exclamation</span>
+                                }
+                                @else
+                                {
+                                    <span class="text-lg font-medium" [ngClass]="(steps.active==2)?'text-white':'text-[#334155]'">2</span>
+                                }
+                            </div>
+                            <div class="flex flex-col detail-wrap">
+                                <span class="text-title font-medium inter" [ngClass]="(steps.active==2)?'text-[#5062f0]':'text-[#334155]'">Work Order</span>
+                                <span class="text-tiny text-gray-700 inter description">Client Details</span>
+                            </div>
+                        </div>
+                        <div class="seperator lg:mx-5"></div>
+                        <div class="flex gap-5 step-details items-center">
+                            <div class="flex icon-wrap w-10 h-10 rounded-lg items-center justify-center" [ngClass]="{'bg-[#e5e9fb]':steps.active!=3,'bg-[#faecea]':steps.data[2].skipped,'bg-[#5062f0]':steps.active==3,}">
+                                @if(steps.data[2].completed)
+                                {
+                                    <span class="text-lg font-medium mi" [ngClass]="(steps.active==3)?'text-white':'text-[#5062f0]'">check</span>
+                                }
+                                @else if (steps.data[2].skipped) {
+                                    <span class="text-lg font-medium text-red-600 mi">exclamation</span>
+                                }
+                                @else
+                                {
+                                    <span class="text-lg font-medium" [ngClass]="(steps.active==3)?'text-white':'text-[#334155]'">3</span>
+                                }
+                            </div>
+                            <div class="flex flex-col detail-wrap">
+                                <span class="text-title font-medium inter" [ngClass]="(steps.active==3)?'text-[#5062f0]':'text-[#334155]'">Department</span>
+                                <span class="text-tiny text-gray-700 inter description">How it's managed</span>
+                            </div>
+                        </div>
+                        <div class="seperator lg:mx-5"></div>
+                        <div class="flex gap-5 step-details items-center">
+                            <div class="flex icon-wrap w-10 h-10 rounded-lg items-center justify-center" [ngClass]="{'bg-[#e5e9fb]':steps.active!=4,'bg-[#faecea]':steps.data[3].skipped,'bg-[#5062f0]':steps.active==4}">
+                                @if(steps.data[3].completed)
+                                {
+                                    <span class="text-lg font-medium mi" [ngClass]="(steps.active==4)?'text-white':'text-[#5062f0]'">check</span>
+                                }
+                                @else if (steps.data[3].skipped) {
+                                    <span class="text-lg font-medium text-red-600 mi">exclamation</span>
+                                }
+                                @else
+                                {
+                                    <span class="text-lg font-medium" [ngClass]="(steps.active==4)?'text-white':'text-[#334155]'">4</span>
+                                }
+                            </div>
+                            <div class="flex flex-col detail-wrap">
+                                <span class="text-title font-medium inter" [ngClass]="(steps.active==4)?'text-[#5062f0]':'text-[#334155]'">Tech Stack</span>
+                                <span class="text-tiny text-gray-700 inter description">Technology Details</span>
+                            </div>
+                        </div>
+                        <div class="seperator lg:mx-5"></div>
+                        <div class="flex gap-5 step-details items-center">
+                            <div class="flex icon-wrap w-10 h-10 rounded-lg items-center justify-center" [ngClass]="{'bg-[#e5e9fb]':steps.active!=5,'bg-[#faecea]':steps.data[4].skipped,'bg-[#5062f0]':steps.active==5,}">
+                                @if(steps.data[4].completed)
+                                {
+                                    <span class="text-lg font-medium mi" [ngClass]="(steps.active==5)?'text-white':'text-[#5062f0]'">check</span>
+                                }@else if (steps.data[4].skipped) {
+                                    <span class="text-lg font-medium text-red-600 mi">exclamation</span>
+                                } 
+                                @else
+                                {
+                                    <span class="text-lg font-medium" [ngClass]="(steps.active==5)?'text-white':'text-[#334155]'">5</span>
+                                }
+                            </div>
+                            <div class="flex flex-col detail-wrap">
+                                <span class="text-title font-medium inter" [ngClass]="(steps.active==5)?'text-[#5062f0]':'text-[#334155]'">Scope</span>
+                                <span class="text-tiny text-gray-700 inter description">Project Classification</span>
+                            </div>
+                        </div>
+                        <div class="seperator lg:mx-5"></div>
+                        <div class="flex gap-5 step-details items-center">
+                            <div class="flex icon-wrap w-10 h-10 rounded-lg items-center justify-center" [ngClass]="{'bg-[#e5e9fb]':steps.active!=6,'bg-[#faecea]':steps.data[5].skipped,'bg-[#5062f0]':steps.active==6}">
+                                @if(steps.data[5].completed)
+                                {
+                                    <span class="text-lg font-medium mi" [ngClass]="(steps.active==6)?'text-white':'text-[#5062f0]'">check</span>
+                                }
+                                @else if (steps.data[5].skipped) {
+                                    <span class="text-lg font-medium text-red-600 mi">exclamation</span>
+                                } @else
+                                {
+                                    <span class="text-lg font-medium" [ngClass]="(steps.active==6)?'text-white':'text-[#334155]'">6</span>
+                                }
+                            </div>
+                            <div class="flex flex-col detail-wrap">
+                                <span class="text-title font-medium inter" [ngClass]="(steps.active==6)?'text-[#5062f0]':'text-[#334155]'">Classification</span>
+                                <span class="text-tiny text-gray-700 inter description">Project & BCP Classification</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full flex flex-col relative p-5">
+                    @if(steps.active == 1)
+                    {
+                        <div class="flex flex-col gap-4">
+                            <div class="flex gap-3 flex-col items-start md:flex-row md:items-end md:gap-5">
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Project Description</label>
+                                    <input class="textbox" type="text" placeholder="Project Description">
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer w-full gap-2 mb-2.5">
+                                    <input type="checkbox" value="" class="sr-only peer" checked>
+                                    <div class="w-11 relative h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4  rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[3.5px] after:start-[7px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                                    <span class="textbox-label">Internal Project</span>
+                                </label>
+                            </div>
+
+                            <div class="flex gap-3 flex-col items-start md:flex-row md:items-end md:gap-5">
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Project Budget Type</label>
+                                    <select class="combobox">
+                                        <option selected disabled>Select an option</option>
+                                        <option>Full Budget</option>
+                                        <option>Half Budget</option>
+                                    </select>
+                                </div>
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Manged By</label>
+                                    <select class="combobox">
+                                        <option selected disabled>Select an option</option>
+                                        <option>Organization</option>
+                                        <option>Thirdparty</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-3 flex-col items-start md:flex-row md:items-end md:gap-5">
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Project Contract Type</label>
+                                    <select class="combobox">
+                                        <option selected disabled>Select an option</option>
+                                        <option>Full Contract</option>
+                                        <option>Half Contract</option>
+                                    </select>
+                                </div>
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Project Manager</label>
+                                    <select class="combobox">
+                                        <option selected disabled>Select an option</option>
+                                        <option>Steve</option>
+                                        <option>John</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 flex-col items-start">
+                                <label class="textbox-label">Attach Approved Email</label>
+                                <div class="w-full flex flex-col items-center py-4 bg-[#f7f7ff] border-gray-200 border rounded-md px-5 md:flex-row gap-2">
+                                    <span class="mi text-gray-600">cloud_upload</span>
+                                    <span class="text-xs text-gray-600">Drag and Drop approval email for the project</span>
+                                    <span class="text-xs mx-3 font-semibold">OR</span>
+                                    <button class="text-xs font-medium border border-[#5062f4] p-4 py-2 text-[#5062f4] rounded-md hover:bg-[#5062f4] hover:text-white" (click)="email.click()">Choose File</button>
+                                    <input #email type="file" class="hidden">
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    @else if(steps.active==2)
+                    {
+                        <div class="flex flex-col gap-4">
+                            <div class="flex gap-3 flex-col items-start md:flex-row md:items-end md:gap-5">
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Work Order Number</label>
+                                    <input class="textbox" type="text" placeholder="Ex. PRSYNCO23">
+                                </div>
+                                <div class="w-full"></div>
+                            </div>
+                            <div class="flex gap-3 flex-col items-start md:flex-row md:items-end md:gap-5">
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">From Date</label>
+                                    <input type="date" class="datepicker">
+                                </div>
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">To Date</label>
+                                    <input type="date" class="datepicker">
+                                </div>
+                            </div>
+                            <div class="flex gap-3 flex-col items-start md:flex-row md:items-end md:gap-5">
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Client Name</label>
+                                    <select class="combobox">
+                                        <option selected disabled>Select an option</option>
+                                        <option>John</option>
+                                        <option>Hari</option>
+                                    </select>
+                                </div>
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Client Email</label>
+                                    <select class="combobox">
+                                        <option selected disabled>Select an option</option>
+                                        <option>john{{'@'}}gmail.com</option>
+                                        <option>hari{{'@'}}gmail.com</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 flex-col items-start md:flex-row md:items-end md:gap-5">
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Client Location</label>
+                                    <select class="combobox">
+                                        <option selected disabled>Select an option</option>
+                                        <option value="IN">India</option>
+                                        <option value="US">United States</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="AU">Australia</option>
+                                        <option value="GB">United Kingdom</option>
+                                        <option value="DE">Germany</option>
+                                        <option value="FR">France</option>
+                                        <option value="JP">Japan</option>
+                                        <option value="BR">Brazil</option>
+                                        <option value="CN">China</option>
+                                    </select>
+                                </div>
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Client Funded By</label>
+                                    <select class="combobox">
+                                        <option selected disabled>Select an option</option>
+                                        <option>Organization</option>
+                                        <option>Thirdparty</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    @else if(steps.active==3)
+                    {
+                        <div class="flex flex-col gap-4">
+                            <div class="flex gap-3 flex-col items-start md:flex-row md:items-end md:gap-5">
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Project Name</label>
+                                    <input class="textbox" type="text" placeholder="Enter project name">
+                                </div>
+                                <div class="w-full"></div>
+                            </div>
+                            <div class="flex gap-3 flex-col items-start md:flex-row md:items-end md:gap-5">
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">BU</label>
+                                    <select class="combobox">
+                                        <option selected disabled>Select an option</option>
+                                        <option>Business Unit 1</option>
+                                        <option>Business Unit 2</option>
+                                    </select>
+                                </div>
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Group Name/SBU</label>
+                                    <select class="combobox">
+                                        <option selected disabled>Select an option</option>
+                                        <option>Group 1</option>
+                                        <option>Group 2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 flex-col items-start md:flex-row md:items-end md:gap-5">
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Program Manager</label>
+                                    <select class="combobox">
+                                        <option selected disabled>Select an option</option>
+                                        <option>John</option>
+                                        <option>Hari</option>
+                                    </select>
+                                </div>
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Project Manager</label>
+                                    <select class="combobox">
+                                        <option selected disabled>Select an option</option>
+                                        <option>John</option>
+                                        <option>Hari</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 flex-col items-start md:flex-row md:items-end md:gap-5">
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Project Execution Type</label>
+                                    <select class="combobox">
+                                        <option selected disabled>Select an option</option>
+                                        <option>Organization</option>
+                                        <option>Thirdparty</option>
+                                    </select>
+                                </div>
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Project Life Cycle</label>
+                                    <select class="combobox">
+                                        <option selected disabled>Select an option</option>
+                                        <option>Start</option>
+                                        <option>End</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 flex-col items-start md:flex-row md:items-end md:gap-5">
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Planned Location</label>
+                                    <select class="combobox">
+                                        <option selected disabled>Select an option</option>
+                                        <option value="IN">India</option>
+                                        <option value="US">United States</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="AU">Australia</option>
+                                        <option value="GB">United Kingdom</option>
+                                        <option value="DE">Germany</option>
+                                        <option value="FR">France</option>
+                                        <option value="JP">Japan</option>
+                                        <option value="BR">Brazil</option>
+                                        <option value="CN">China</option>
+                                    </select>
+                                </div>
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Planned Hours</label>
+                                    <input class="textbox" type="text" placeholder="Enter Hours">
+                                </div>
+                            </div>
+                            
+                        </div>
+                    }
+                    @else if(steps.active==4)
+                    {
+                        <div class="flex flex-col gap-4">
+                            <div class="flex gap-3 flex-col items-start md:flex-row md:items-end md:gap-5">
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Technology</label>
+                                    <input class="textbox" type="text" id="tech" placeholder="Type and press enter" (keypress)="addTechnology($event)">
+                                    
+                                </div>
+                                <div class="w-full"></div>
+                            </div>
+                            <div class="flex gap-3 flex-col items-start md:flex-row md:items-end md:gap-5">
+                                <div class="flex flex-wrap gap-3">
+                                    @for(t of technologies;track t)
+                                    {
+                                        <div class="bg-[#f1f3ff] flex items-center px-2 ps-3 h-8 rounded-full justify-between gap-1">
+                                            <span class="text-xs text-gray-700 font-medium">{{t}}</span>
+                                            <span class="btn-icon cursor-pointer mi text-gray-700" (click)="removeTechnology(t)">close</span>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <div class="flex gap-3 flex-col items-start mt-4 md:flex-row md:items-end md:gap-5">
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Design/Coding Standards</label>
+                                    <textarea class="textarea" placeholder="Ex. Code coverage should be more than 80%"></textarea>
+                                </div>
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Regulatory Standards</label>
+                                    <textarea class="textarea" placeholder="Some standards"></textarea>  
+                                </div>
+                            </div>
+
+                            <div class="flex gap-3 flex-col items-start md:flex-row md:items-end md:gap-5">
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Objectives and Goals</label>
+                                    <textarea class="textarea" placeholder="Ex. UAT should start by 30 May 2024"></textarea>
+                                </div>
+                                <div class="w-full">
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    @else if(steps.active==5)
+                    {
+                        <div class="flex flex-col gap-4">
+                            <h2>Not Implemented</h2>
+                            <span class="text-sm">Press skip to go to next step</span>
+                        </div>
+                    }
+                    @else if(steps.active==6)
+                    {
+                        <div class="flex flex-col gap-4">
+                            <span class="text-md font-medium text-gray-700">Project Classification</span>
+
+                            <div class="flex gap-3 flex-col items-start md:flex-row md:items-end md:gap-5">
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Technology Complexity</label>
+                                    <select class="combobox">
+                                        <option selected disabled>Select an option</option>
+                                        <option>Complexity 1</option>
+                                        <option>Complexity 2</option>
+                                        <option>Complexity 3</option>
+                                    </select>
+                                </div>
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Investment Complexity</label>
+                                    <select class="combobox">
+                                        <option selected disabled>Select an option</option>
+                                        <option>Complexity 1</option>
+                                        <option>Complexity 2</option>
+                                        <option>Complexity 3</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-3 flex-col items-start md:flex-row md:items-end md:gap-5">
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Schedule Complexity</label>
+                                    <select class="combobox">
+                                        <option selected disabled>Select an option</option>
+                                        <option>Complexity 1</option>
+                                        <option>Complexity 2</option>
+                                        <option>Complexity 3</option>
+                                    </select>
+                                </div>
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Team Size Complexity</label>
+                                    <select class="combobox">
+                                        <option selected disabled>Select an option</option>
+                                        <option>Complexity 1</option>
+                                        <option>Complexity 2</option>
+                                        <option>Complexity 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <span class="text-md font-medium text-gray-700">BCP Classification</span>
+
+                            <div class="flex gap-3 flex-col items-start md:flex-row md:items-end md:gap-5">
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Impact on Revenue Loss</label>
+                                    <select class="combobox">
+                                        <option selected disabled>Select an option</option>
+                                        <option>Impact 1</option>
+                                        <option>Impact 2</option>
+                                        <option>Impact 3</option>
+                                    </select>
+                                </div>
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Impact on Customer</label>
+                                    <select class="combobox">
+                                        <option selected disabled>Select an option</option>
+                                        <option>Impact 1</option>
+                                        <option>Impact 2</option>
+                                        <option>Impact 3</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-3 flex-col items-start md:flex-row md:items-end md:gap-5">
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Impact on Resource</label>
+                                    <select class="combobox">
+                                        <option selected disabled>Select an option</option>
+                                        <option>Impact 1</option>
+                                        <option>Impact 2</option>
+                                        <option>Impact 3</option>
+                                    </select>
+                                </div>
+                                <div class="flex w-full flex-col gap-1">
+                                    <label class="textbox-label">Impact on Productivity</label>
+                                    <select class="combobox">
+                                        <option selected disabled>Select an option</option>
+                                        <option>Impact 1</option>
+                                        <option>Impact 2</option>
+                                        <option>Impact 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    
+                    <div class="flex justify-between mt-auto relative bottom-0 w-full pt-5">
+                        <button class="flex bg-[#eeeeff] p-2 pe-4 rounded-md items-center justify-center gap-1" (click)="goBack()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#334155" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                            <span class="text-gray-800 btn-text font-medium inter">Back</span>
+                        </button>
+
+                        <div class="flex items-center gap-2">
+                            <button class="flex bg-[#f1f3ff] border border-[#5062f4] p-2 ps-4 rounded-md items-center justify-center gap-1" (click)="skip()">
+                                <span class="text-[#5062f4] btn-text font-medium inter">Skip</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5062f4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-right"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>
+                            </button>
+                            
+                            @if(steps.active!=6)
+                            {
+                                <button class="flex bg-[#5062f4] p-2 ps-4 rounded-md items-center justify-center gap-1" (click)="goNext()">
+                                    <span class="text-white btn-text font-medium inter">Save & Continue</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                </button>
+                            }
+                            @else
+                            {
+                                <button class="flex bg-[#5bc1c3] p-2 ps-4 rounded-md items-center justify-center gap-1" (click)="closeDialog()">
+                                    <span class="text-white btn-text font-medium inter">Submit Project</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                </button>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

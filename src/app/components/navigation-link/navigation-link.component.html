@@ -1,0 +1,6 @@
+<a class="nav-link" routerLink="{{path}}" [ngClass]="{'drawer-open':navigationService.isDrawerOpen(),'drawer-closed':!navigationService.isDrawerOpen(),'active': active}">
+    <span class="mi">{{icon}}</span>
+    <span class="ps-3 text-sm font-medium text">
+        <ng-content></ng-content>
+    </span>
+</a>

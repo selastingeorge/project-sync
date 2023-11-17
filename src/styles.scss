@@ -1,1 +1,152 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    box-sizing: border-box !important;
+}
+
+html,
+body {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    display: flex;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.inter {
+    font-family: 'Inter', sans-serif;
+}
+
+.mi {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+}
+
+.progress {
+    animation: progress 1s infinite linear;
+}
+
+.left-right {
+    transform-origin: 0% 50%;
+}
+
+.combobox
+{
+    font-size:13px;
+    color:#415570 !important;
+    border:none;
+    background-color:#f6f7fb;
+    min-width:110px;
+    border-radius:8px;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM0MTU1NzAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0iZmVhdGhlciBmZWF0aGVyLWNoZXZyb24tZG93biI+PHBvbHlsaW5lIHBvaW50cz0iNiA5IDEyIDE1IDE4IDkiPjwvcG9seWxpbmU+PC9zdmc+");
+    background-repeat:no-repeat;
+    background-size:16px;
+    box-shadow:none !important;
+}
+
+.dialog {
+    z-index:999999 !important;
+}
+
+.textbox {
+    width:100%;
+    height:40px;
+    font-size:13px;
+    border-radius:8px;
+    background:#f6f7fb;
+    border:none;
+    color:#415570;
+
+    &::placeholder
+    {
+        color: #415570;
+    }
+}
+
+.datepicker
+{
+    width:100%;
+    height:40px;
+    font-size:13px;
+    border-radius:8px;
+    background-color:#f6f7fb;
+    border:none;
+    appearance: none;
+    color:#415570;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM0MTU1NzAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0iZmVhdGhlciBmZWF0aGVyLWNhbGVuZGFyIj48cmVjdCB4PSIzIiB5PSI0IiB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHJ4PSIyIiByeT0iMiI+PC9yZWN0PjxsaW5lIHgxPSIxNiIgeTE9IjIiIHgyPSIxNiIgeTI9IjYiPjwvbGluZT48bGluZSB4MT0iOCIgeTE9IjIiIHgyPSI4IiB5Mj0iNiI+PC9saW5lPjxsaW5lIHgxPSIzIiB5MT0iMTAiIHgyPSIyMSIgeTI9IjEwIj48L2xpbmU+PC9zdmc+");
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: center right 15px;
+    position: relative;
+
+    &::-webkit-calendar-picker-indicator {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        color: transparent;
+        background: transparent;
+    }
+
+    &::placeholder
+    {
+        color: #415570;
+    }
+}
+
+.textarea
+{
+    width:100%;
+    height:80px;
+    font-size:13px;
+    border-radius:8px;
+    background:#f6f7fb;
+    border:none;
+    color:#415570;
+    resize: none;
+
+    &::placeholder
+    {
+        color: #415570;
+    }
+}
+
+.textbox-label
+{
+    font-size:13px;
+    color:#20252c;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+}
+
+@keyframes progress {
+    0% {
+        transform: translateX(0) scaleX(0);
+    }
+
+    40% {
+        transform: translateX(0) scaleX(0.4);
+    }
+
+    100% {
+        transform: translateX(100%) scaleX(0.5);
+    }
+}

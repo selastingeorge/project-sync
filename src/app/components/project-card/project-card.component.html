@@ -1,0 +1,54 @@
+<div class="bg-white rounded-md px-4 py-4">
+    <div class="flex">
+        <span class="text-sm font-medium text-gray-600 mt-2">{{title}}</span>
+        <div class="ms-auto flex">
+            <button class="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded-lg">
+                <span class="mi icon-small text-sm text-gray-600">edit</span>
+            </button>
+            <button class="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded-lg">
+                <span class="mi icon-small text-sm text-gray-600">more_vert</span>
+            </button>
+        </div>
+    </div>
+    <span class="text-xs font-medium" [ngClass]="{'text-[#5160f6]':status=='Active','text-yellow-500':status=='On Hold','text-green-500':status=='Completed','text-red-500':status=='Disabled'}">{{status}}</span>
+    <div class="flex py-2 justify-between items-center">
+        <div class="flex flex-col gap-1">
+            <span class="text-tiny text-gray-600">Start date</span>
+            <span class="text-xs font-medium text-gray-600">{{ startDate | date: 'dd MMM yyyy' }}</span>
+        </div>
+        <div class="bg-[#f5f7fe] flex p-3 divide-x rounded-lg">
+            <div class="flex flex-col items-center justify-center px-3">
+                <span class="text-sm font-medium">{{tasks}}</span>
+                <span class="text-tiny">Tasks</span>
+            </div>
+            <div class="flex flex-col items-center justify-center px-3">
+                <span class="text-sm font-medium">{{users}}</span>
+                <span class="text-tiny">Users</span>
+            </div>
+        </div>
+    </div>
+
+    <span class="text-xs font-medium text-gray-600">Members</span>
+    <div class="flex py-2 gap-2">
+        @for(member of members;track member.photo)
+        {
+            <div class="relative">
+                <img class="w-8 h-8 rounded-full" src="{{member.photo}}" alt="Small avatar">
+                @if(member.online)
+                {
+                    <div class="w-2.5 h-2.5 absolute bottom-0 bg-[#25be8c] border-2 border-white rounded-full"></div>
+                }
+            </div>
+        }
+        <div class="add-btn w-8 h-8 border border-gray-500 rounded-full flex items-center justify-center">
+            <span class="mi text-gray-500">add</span>
+        </div>
+    </div>
+    <div class="flex justify-between mt-1">
+        <span class="text-xs font-medium text-gray-600">Progress</span>
+        <span class="text-xs font-medium text-gray-600">{{progress}}%</span>
+    </div>
+    <div class="w-full bg-gray-200 rounded-full h-1.5 mt-2 mb-3">
+        <div class="bg-blue-600 h-1.5 rounded-full dark:bg-blue-500" [style.width]="progress + '%'"></div>
+      </div>
+</div>
